@@ -1,0 +1,73 @@
+<?php
+namespace SMB\SeleniumDownloader\Argument;
+
+interface Optionable
+{
+    /** @var string */
+    const HELP = 'h';
+
+    /** @var string */
+    const HELP_LONG = 'help';
+
+    /** @var string */
+    const PLATFORM = 'p';
+
+    /** @var string */
+    const OUTPUT_DIR = 'd';
+
+    /** @var string */
+    const SELENIUM_VER = 's';
+
+    /** @var string */
+    const CHROME_DRIVER_VER = 'c';
+
+    /** @var string */
+    const GECKO_DRIVER_VER = 'g';
+
+    /** @var string */
+    const IE_DRIVER_VER = 'i';
+
+    /** @var string */
+    const OS_BIT_VER = 'b';
+
+    /**
+     * Returns true if option is specified.
+	 * 
+     * @return boolean
+     */
+    public function isSpecified();
+
+    /**
+     * If true it will output a help message.
+	 * 
+     * @return boolean
+     */
+    public function isSpecifiedHelp();
+
+    /**
+     * Create help message.
+     * 
+     * @return string
+     */
+    public function createHelpMessage();
+
+    /**
+     * Get optional arguments.
+     * 
+     * e.g)
+     * <code>
+     * return [<br>
+     *     'p' => 'w',      // Select platform [m]ac or [w]indows or [l]inux.<br>
+     *     'd' => '.',      // Enter the output directory path.<br>
+     *     's' => '3.8.1',  // Enter the version of selenium-standalone-server. (e.g 3.8.1, 3.7(3.7.0)<br>
+     *     'c' => '2.43',   // Enter the version of ChromeDriver. (e.g 2.43<br>
+     *     'g' => '0.23.0', // Enter the version of GeckoDriver. (e.g 0.23(0.23.0), 0.20.1<br>
+     *     'i' => '3.14.0', // Enter the version of IEDriverServer. (e.g 3.14(3.14.0)<br>
+     *     'b' => '32',     // Enter the number of OS bits (32 or 64).<br>
+     * ];
+     * </code>
+	 * 
+     * @return array
+     */
+    public function get();
+}

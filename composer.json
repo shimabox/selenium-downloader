@@ -1,0 +1,36 @@
+{
+    "name": "shimabox/selenium-downloader",
+    "description": "selenium-server-standalone, ChromeDriver, geckodriver and IEDriverServer downloader.",
+    "keywords": ["selenium", "download", "downloader"],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/shimabox/selenium-downloader",
+    "authors": [
+        {
+            "name": "shimabox",
+            "email": "shimabox@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "vlucas/phpdotenv": "^2.5",
+        "league/climate": "^3.2 || ^3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "SMB\\SeleniumDownloader\\": "src/"
+        },
+        "files": [
+            "bootstrap.php"
+        ]
+    },
+    "scripts": {
+        "init-env": "php -r \"file_exists('.env') || copy('.env.default', '.env');\"",
+        "post-install-cmd": [
+            "@init-env"
+        ],
+        "post-update-cmd": [
+            "@init-env"
+        ]
+    }
+}

@@ -1,0 +1,8 @@
+.DS_Store
+.env
+composer.lock
+vendor/
+selenium-server-standalone*
+*.exe
+chromedriver
+geckodriver
