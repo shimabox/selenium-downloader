@@ -31,6 +31,9 @@ Via Composer
 $ composer require shimabox/selenium-downloader
 ```
 
+Please refer to the link below.  
+[##instant-download](https://github.com/shimabox/selenium-downloader#instant-download "shimabox/selenium-downloader: selenium-server-standalone, ChromeDriver, geckodriver and IEDriverServer downloader.")
+
 Develop
 
 ```
