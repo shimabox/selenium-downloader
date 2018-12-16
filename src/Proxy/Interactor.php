@@ -103,4 +103,12 @@ class Interactor implements Interactable
         $input->defaultTo($default);
         return $input->prompt();
     }
+
+    /**
+     * @return void
+     */
+    public function quit()
+    {
+        exit();
+    }
 }

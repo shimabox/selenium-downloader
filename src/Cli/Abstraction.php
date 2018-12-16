@@ -45,7 +45,7 @@ abstract class Abstraction
     const IEDRIVER_URL_OF_64BIT = 'https://selenium-release.storage.googleapis.com/%s/IEDriverServer_x64_%s.zip';
 
     /**
-     * 
+     *
      * @var Interactable
      */
     protected $interactor;
@@ -62,9 +62,9 @@ abstract class Abstraction
     private $outputDir = '';
 
     /**
-     * 
+     *
      * @param Interactable $interactor
-     * 
+     *
      * @return void
      */
     public function __construct(Interactable $interactor)
@@ -73,13 +73,13 @@ abstract class Abstraction
     }
 
     /**
-     * 
+     *
      * @return string
      */
     abstract protected function determinePlatform();
 
     /**
-     * 
+     *
      * @return string
      */
     abstract protected function determineOutputDir();
@@ -87,27 +87,31 @@ abstract class Abstraction
     /**
      * Execute what you want to do before processing execution.<br>
      * e.g) Validation, etc
-     * 
+     *
      * @return void
      */
     abstract protected function before();
 
     /**
-     * 
+     *
      * @return void
      */
     abstract protected function _execute();
 
     /**
-     * 
+     *
      * @return void
      */
     public function execute()
     {
-        $this->platform  = $this->determinePlatform();
+        $this->platform = $this->determinePlatform();
 
         $outputDir = realpath($this->determineOutputDir());
-        if ($outputDir && is_dir($outputDir) && is_writable($outputDir)) {
+        if (
+            $outputDir
+            && is_dir($outputDir)
+            && is_writable($outputDir)
+        ) {
             $this->outputDir = $outputDir . DIRECTORY_SEPARATOR;
         }
 
@@ -119,7 +123,7 @@ abstract class Abstraction
     }
 
     /**
-     * 
+     *
      * @return string
      */
     protected function defaultOutputDir()
@@ -130,7 +134,7 @@ abstract class Abstraction
     }
 
     /**
-     * 
+     *
      * @return string
      */
     protected function getPlatform()
@@ -139,7 +143,7 @@ abstract class Abstraction
     }
 
     /**
-     * 
+     *
      * @return string
      */
     protected function getOutputDir()
@@ -148,9 +152,9 @@ abstract class Abstraction
     }
 
     /**
-     * 
+     *
      * @param string $ver
-     * 
+     *
      * @return boolean
      */
     protected function downloadSelenium($ver)
@@ -167,9 +171,9 @@ abstract class Abstraction
     }
 
     /**
-     * 
+     *
      * @param string $ver
-     * 
+     *
      * @return boolean
      */
     protected function downloadChromeDriver($ver)
@@ -206,9 +210,9 @@ abstract class Abstraction
     }
 
     /**
-     * 
+     *
      * @param string $ver
-     * 
+     *
      * @return boolean
      */
     protected function downloadGeckoDriver($ver)
@@ -253,10 +257,10 @@ abstract class Abstraction
     }
 
     /**
-     * 
+     *
      * @param string $ver
      * @param string $bit
-     * 
+     *
      * @return boolean
      */
     protected function downloadIEDriver($ver, $bit)
@@ -290,15 +294,15 @@ abstract class Abstraction
     }
 
     /**
-     * 
+     *
      * @param string $ver
-     * 
+     *
      * @return \stdClass|null
      */
     protected function determineVersion($ver)
     {
         $_m = [];
-        preg_match('/^([0-9]|[1-9][0-9]{1,})(\.([0-9]|[1-9][0-9]{1,}))(\.(.*))?$/', $ver, $_m); 
+        preg_match('/^([0-9]|[1-9][0-9]{1,})(\.([0-9]|[1-9][0-9]{1,}))(\.(.*))?$/', $ver, $_m);
 
         if (
             count($_m) === 0
@@ -324,9 +328,9 @@ abstract class Abstraction
     }
 
     /**
-     * 
+     *
      * @param string $url
-     * 
+     *
      * @return boolean
      */
     private function download($url)
@@ -342,12 +346,14 @@ abstract class Abstraction
         ));
 
         $ret     = curl_exec($ch);
+        $error   = curl_error($ch);
         $errorNo = curl_errno($ch);
 
         curl_close($ch);
 
         if($errorNo !== CURLE_OK) {
             $this->interactor->out('Download error [url]: ' . $url);
+            $this->interactor->out('Download error [curl error]: ' . $error);
             $this->interactor->out('Download error [curl error no]: ' . $errorNo);
             return false;
         }

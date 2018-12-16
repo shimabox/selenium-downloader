@@ -19,7 +19,7 @@ class Option implements Optionable
     public function isSpecifiedHelp()
     {
         $opt = $this->get();
-        return isset($opt[self::HELP]) || isset($opt[self::HELP_LONG]);
+        return isset($opt[OptionConfig::HELP]) || isset($opt[OptionConfig::HELP_LONG]);
     }
 
     /**
@@ -83,17 +83,17 @@ class Option implements Optionable
      */
     private function _getopt()
     {
-        $shortopts  = self::HELP;  // help
-        $shortopts .= self::PLATFORM . ':';          // platform
-        $shortopts .= self::OUTPUT_DIR . ':';        // output dir.
-        $shortopts .= self::SELENIUM_VER . ':';      // Selenium-Standalone-Server Ver.
-        $shortopts .= self::CHROME_DRIVER_VER . ':'; // ChromeDriver Ver.
-        $shortopts .= self::GECKO_DRIVER_VER . ':';  // GeckoDriver Ver.
-        $shortopts .= self::IE_DRIVER_VER . ':';     // IEDriverServer Ver.
-        $shortopts .= self::OS_BIT_VER . ':';        // bit of OS (Default 32).
+        $shortopts  = OptionConfig::HELP;  // help
+        $shortopts .= OptionConfig::PLATFORM . ':';          // platform
+        $shortopts .= OptionConfig::OUTPUT_DIR . ':';        // output dir.
+        $shortopts .= OptionConfig::SELENIUM_VER . ':';      // Selenium-Standalone-Server Ver.
+        $shortopts .= OptionConfig::CHROME_DRIVER_VER . ':'; // ChromeDriver Ver.
+        $shortopts .= OptionConfig::GECKO_DRIVER_VER . ':';  // GeckoDriver Ver.
+        $shortopts .= OptionConfig::IE_DRIVER_VER . ':';     // IEDriverServer Ver.
+        $shortopts .= OptionConfig::OS_BIT_VER . ':';        // bit of OS (Default 32).
 
         $longopts = array(
-            self::HELP_LONG . '::', // help
+            OptionConfig::HELP_LONG . '::', // help
         );
 
         return getopt($shortopts, $longopts);
