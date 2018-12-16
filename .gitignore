@@ -6,3 +6,4 @@ selenium-server-standalone*
 *.exe
 chromedriver
 geckodriver
+tests/report/
