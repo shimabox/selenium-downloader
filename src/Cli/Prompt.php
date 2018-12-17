@@ -30,7 +30,7 @@ class Prompt extends Abstraction
     {
         if ($this->getOutputDir() === '') {
             $this->interactor->out('Please enter an existing writable directory path.');
-            exit();
+            $this->interactor->quit();
         }
     }
 
@@ -40,28 +40,28 @@ class Prompt extends Abstraction
      */
     protected function _execute()
     {
-        $resultOfSeleniumPreparation = $this->preparaOfSelenium();
-        if (! $resultOfSeleniumPreparation) {
+        $resultOfSeleniumDownload = $this->_downloadSelenium();
+        if (! $resultOfSeleniumDownload) {
             $this->interactor->out('Please enter the "major-ver.minor-ver(.patch-ver)" format and existing version.');
-            exit();
+            $this->interactor->quit();
         }
 
-        $resultOfChromeDriverPreparation = $this->prepareOfChromeDriver();
-        if (! $resultOfChromeDriverPreparation) {
+        $resultOfChromeDriverDownload = $this->_downloadChromeDriver();
+        if (! $resultOfChromeDriverDownload) {
             $this->interactor->out('Please enter the "major-ver.minor-ver" format and existing version.');
-            exit();
+            $this->interactor->quit();
         }
 
-        $resultOfGeckoDriverPreparation = $this->prepareOfGeckoDriver();
-        if (! $resultOfGeckoDriverPreparation) {
+        $resultOfGeckoDriverDownload = $this->_downloadGeckoDriver();
+        if (! $resultOfGeckoDriverDownload) {
             $this->interactor->out('Please enter the "major-ver.minor-ver(.patch-ver)" format and existing version.');
-            exit();
+            $this->interactor->quit();
         }
 
-        $resultOfIEDriverPreparation = $this->prepareOfIEDriver();
-        if (! $resultOfIEDriverPreparation) {
+        $resultOfIEDriverDownload = $this->_downloadIEDriver();
+        if (! $resultOfIEDriverDownload) {
             $this->interactor->out('Please enter the "major-ver.minor-ver(.patch-ver)" format and existing version.');
-            exit();
+            $this->interactor->quit();
         }
     }
 
@@ -69,7 +69,7 @@ class Prompt extends Abstraction
      * 
      * @return boolean
      */
-    private function preparaOfSelenium()
+    private function _downloadSelenium()
     {
         $response = $this->interactor->confirmNecessityOfAsset(
             'Do you need Selenium? [N]o, [y]es:',
@@ -102,7 +102,7 @@ class Prompt extends Abstraction
      * 
      * @return boolean
      */
-    private function prepareOfChromeDriver()
+    private function _downloadChromeDriver()
     {
         $response = $this->interactor->confirmNecessityOfAsset(
             'Do you need ChromeDriver? [N]o, [y]es:',
@@ -135,7 +135,7 @@ class Prompt extends Abstraction
      * 
      * @return boolean
      */
-    private function prepareOfGeckoDriver()
+    private function _downloadGeckoDriver()
     {
         $response = $this->interactor->confirmNecessityOfAsset(
             'Do you need GeckoDriver? [N]o, [y]es:',
@@ -168,7 +168,7 @@ class Prompt extends Abstraction
      * 
      * @return boolean
      */
-    private function prepareOfIEDriver()
+    private function _downloadIEDriver()
     {
         $response = $this->interactor->confirmNecessityOfAsset(
             'Do you need IEDriver? [N]o, [y]es:',

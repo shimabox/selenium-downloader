@@ -47,4 +47,9 @@ interface Interactable
      * @return string
      */
     public function determiningVersionOfAsset($prompt, $default);
+
+    /**
+     * @return void
+     */
+    public function quit();
 }
