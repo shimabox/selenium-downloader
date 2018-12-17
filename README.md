@@ -1,6 +1,9 @@
 # selenium-downloader
 selenium-server-standalone, ChromeDriver, geckodriver and IEDriverServer downloader.
 
+[![License](https://poser.pugx.org/shimabox/selenium-downloader/license)](https://packagist.org/packages/shimabox/selenium-downloader)
+[![Build Status](https://travis-ci.org/shimabox/selenium-downloader.svg?branch=master)](https://travis-ci.org/shimabox/selenium-downloader)
+
 ## Features
 
 - Can download selenium related assets interactively or with option(not interactive).
