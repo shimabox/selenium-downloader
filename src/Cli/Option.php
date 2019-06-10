@@ -93,13 +93,13 @@ class Option extends Abstraction
 
         $resultOfSeleniumDownload = $this->_downloadSelenium();
         if (! $resultOfSeleniumDownload) {
-            $this->interactor->out('Please input the "major-ver.minor-ver (.patch-ver)" format and the existing version of selenium(-' . OptionConfig::SELENIUM_VER . ').');
+            $this->interactor->out('Please input the "major-ver.minor-ver(.patch-ver)" format and the existing version of selenium(-' . OptionConfig::SELENIUM_VER . ').');
             $this->interactor->quit();
         }
 
         $resultOfChromeDriverDownload = $this->_downloadChromeDriver();
         if (! $resultOfChromeDriverDownload) {
-            $this->interactor->out('Please input the "major-ver.minor-ver" format and existing version of ChromeDriver(-' . OptionConfig::CHROME_DRIVER_VER . ').');
+            $this->interactor->out('Please input the "major-ver.minor-ver(.build-ver.patch-ver)" format and existing version of ChromeDriver(-' . OptionConfig::CHROME_DRIVER_VER . ').');
             $this->interactor->quit();
         }
 

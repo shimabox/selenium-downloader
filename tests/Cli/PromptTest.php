@@ -131,7 +131,7 @@ class PromptTest extends \PHPUnit_Framework_TestCase
             ->method('determiningVersionOfAsset')
             ->will($this->returnValueMap([
                 ['Please enter selenium-server-standalone version Default [' . getenv('DEFAULT_SELENIUM_VER') . ']:', getenv('DEFAULT_SELENIUM_VER'), '3.8'],
-                ['Please enter ChromeDriver version Default [' . getenv('DEFAULT_CHROMEDRIVER_VER') . ']:', getenv('DEFAULT_CHROMEDRIVER_VER'), '2.42'],
+                ['Please enter ChromeDriver version Default [' . getenv('DEFAULT_CHROMEDRIVER_VER') . ']:', getenv('DEFAULT_CHROMEDRIVER_VER'), '75.0.3770.8'],
                 ['Please enter GeckoDriver version Default [' . getenv('DEFAULT_GECKODRIVER_VER') . ']:', getenv('DEFAULT_GECKODRIVER_VER'), '0.20.1'],
             ]))
             ;
@@ -269,7 +269,7 @@ class PromptTest extends \PHPUnit_Framework_TestCase
             ->method('determiningVersionOfAsset')
             ->will($this->returnValueMap([
                 ['Please enter selenium-server-standalone version Default [' . getenv('DEFAULT_SELENIUM_VER') . ']:', getenv('DEFAULT_SELENIUM_VER'), '3.8'],
-                ['Please enter ChromeDriver version Default [' . getenv('DEFAULT_CHROMEDRIVER_VER') . ']:', getenv('DEFAULT_CHROMEDRIVER_VER'), '2.42'],
+                ['Please enter ChromeDriver version Default [' . getenv('DEFAULT_CHROMEDRIVER_VER') . ']:', getenv('DEFAULT_CHROMEDRIVER_VER'), '75.0.3770.8'],
                 ['Please enter GeckoDriver version Default [' . getenv('DEFAULT_GECKODRIVER_VER') . ']:', getenv('DEFAULT_GECKODRIVER_VER'), '0.20.1'],
                 ['Please enter IEDriverServer version Default [' . getenv('DEFAULT_IEDRIVER_VER') . ']:', getenv('DEFAULT_IEDRIVER_VER'), '3.141.0'],
             ]))
@@ -406,7 +406,7 @@ class PromptTest extends \PHPUnit_Framework_TestCase
             ->method('determiningVersionOfAsset')
             ->will($this->returnValueMap([
                 ['Please enter selenium-server-standalone version Default [' . getenv('DEFAULT_SELENIUM_VER') . ']:', getenv('DEFAULT_SELENIUM_VER'), '3.8'],
-                ['Please enter ChromeDriver version Default [' . getenv('DEFAULT_CHROMEDRIVER_VER') . ']:', getenv('DEFAULT_CHROMEDRIVER_VER'), '2.42'],
+                ['Please enter ChromeDriver version Default [' . getenv('DEFAULT_CHROMEDRIVER_VER') . ']:', getenv('DEFAULT_CHROMEDRIVER_VER'), '75.0.3770.8'],
                 ['Please enter GeckoDriver version Default [' . getenv('DEFAULT_GECKODRIVER_VER') . ']:', getenv('DEFAULT_GECKODRIVER_VER'), '0.20.1'],
             ]))
             ;

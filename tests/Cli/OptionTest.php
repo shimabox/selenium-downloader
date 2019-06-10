@@ -54,11 +54,6 @@ class OptionTest extends \PHPUnit_Framework_TestCase
         exec('rm -rf ' . self::$outputDir);
     }
 
-    public function testHoge()
-    {
-        $this->assertTrue(true);
-    }
-
     /**
      * @test
      */
@@ -161,7 +156,7 @@ class OptionTest extends \PHPUnit_Framework_TestCase
                 'p' => 'm', // Platform is Mac.
                 'd' => self::$outputDir,
                 's' => '3.8',
-                'c' => '2.42',
+                'c' => '75.0.3770.8',
                 'g' => '0.20.1',
             ])
             ;
@@ -264,7 +259,7 @@ class OptionTest extends \PHPUnit_Framework_TestCase
                 'p' => 'w', // Platform is Windows.
                 'd' => self::$outputDir,
                 's' => '3.8',
-                'c' => '2.42',
+                'c' => '75.0.3770.8',
                 'g' => '0.20.1',
                 'i' => '3.141.0',
             ])
@@ -309,7 +304,7 @@ class OptionTest extends \PHPUnit_Framework_TestCase
 
         $this->assertFileExists(self::$outputDir . '/IEDriverServer.exe');
 
-        $this->assertFileNotExists(self::$outputDir . '/selenium-server-standalone -3.8.1.jar');
+        $this->assertFileNotExists(self::$outputDir . '/selenium-server-standalone-3.8.1.jar');
         $this->assertFileNotExists(self::$outputDir . '/chromedriver.exe');
         $this->assertFileNotExists(self::$outputDir . '/geckodriver.exe');
     }
@@ -368,7 +363,7 @@ class OptionTest extends \PHPUnit_Framework_TestCase
                 'p' => 'l', // Platform is Linux.
                 'd' => self::$outputDir,
                 's' => '3.8',
-                'c' => '2.42',
+                'c' => '75.0.3770.8',
                 'g' => '0.20.1',
             ])
             ;

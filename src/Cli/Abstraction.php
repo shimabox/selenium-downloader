@@ -178,7 +178,7 @@ abstract class Abstraction
      */
     protected function downloadChromeDriver($ver)
     {
-        $_ver = $this->determineVersion($ver);
+        $_ver = $this->determineChromeVersion($ver);
 
         if ($_ver === null) {
             return false;
@@ -187,13 +187,13 @@ abstract class Abstraction
         $downloadUrl = '';
         switch ($this->platform) {
             case self::MAC :
-                $downloadUrl = sprintf(self::CHROMEDRIVER_URL_OF_MAC, $_ver->minorVer);
+                $downloadUrl = sprintf(self::CHROMEDRIVER_URL_OF_MAC, $_ver->ver);
                 break;
             case self::WINDOWS :
-                $downloadUrl = sprintf(self::CHROMEDRIVER_URL_OF_WINDOWS, $_ver->minorVer);
+                $downloadUrl = sprintf(self::CHROMEDRIVER_URL_OF_WINDOWS, $_ver->ver);
                 break;
             case self::LINUX :
-                $downloadUrl = sprintf(self::CHROMEDRIVER_URL_OF_LINUX, $_ver->minorVer);
+                $downloadUrl = sprintf(self::CHROMEDRIVER_URL_OF_LINUX, $_ver->ver);
                 break;
         }
 
@@ -323,6 +323,38 @@ abstract class Abstraction
         $ret->majorVer = $major;
         $ret->minorVer = $minorVer;
         $ret->patchVer = $patchVer;
+
+        return $ret;
+    }
+
+    /**
+     *
+     * @param string $ver
+     *
+     * @return \stdClass|null
+     */
+    protected function determineChromeVersion($ver)
+    {
+        $_m = [];
+        preg_match('/^([0-9]|[1-9][0-9]{1,})(\.([0-9]|[1-9][0-9]{1,}))(\.([0-9]|[1-9][0-9]{1,}))?(\.(.*))?$/', $ver, $_m);
+
+        if (
+            count($_m) === 0
+            || !isset($_m[1])
+            || !isset($_m[3])
+        ) {
+            return null;
+        }
+
+        $major = $_m[1];
+        $minor = $_m[3];
+        $build = isset($_m[5]) ? '.' . $_m[5] : '';
+        $patch = isset($_m[7]) ? '.' . $_m[7] : '';
+
+        $ver = $major . '.' . $minor . $build . $patch;
+
+        $ret = new \stdClass();
+        $ret->ver = $ver;
 
         return $ret;
     }

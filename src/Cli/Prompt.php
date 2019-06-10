@@ -48,7 +48,7 @@ class Prompt extends Abstraction
 
         $resultOfChromeDriverDownload = $this->_downloadChromeDriver();
         if (! $resultOfChromeDriverDownload) {
-            $this->interactor->out('Please enter the "major-ver.minor-ver" format and existing version.');
+            $this->interactor->out('Please enter the "major-ver.minor-ver(.build-ver.patch-ver)" format and existing version.');
             $this->interactor->quit();
         }
 
