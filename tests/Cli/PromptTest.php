@@ -84,16 +84,16 @@ class PromptTest extends \PHPUnit_Framework_TestCase
             ->expects($this->exactly(3))
             ->method('determiningVersionOfAsset')
             ->will($this->returnValueMap([
-                ['Please enter selenium-server-standalone version Default [' . getenv('DEFAULT_SELENIUM_VER') . ']:', getenv('DEFAULT_SELENIUM_VER'), '3.8.1'],
-                ['Please enter ChromeDriver version Default [' . getenv('DEFAULT_CHROMEDRIVER_VER') . ']:', getenv('DEFAULT_CHROMEDRIVER_VER'), '2.43'],
-                ['Please enter GeckoDriver version Default [' . getenv('DEFAULT_GECKODRIVER_VER') . ']:', getenv('DEFAULT_GECKODRIVER_VER'), '0.23.0'],
+                ['Please enter selenium-server-standalone version Default [' . getenv('DEFAULT_SELENIUM_VER') . ']:', getenv('DEFAULT_SELENIUM_VER'), getenv('DEFAULT_SELENIUM_VER')],
+                ['Please enter ChromeDriver version Default [' . getenv('DEFAULT_CHROMEDRIVER_VER') . ']:', getenv('DEFAULT_CHROMEDRIVER_VER'), getenv('DEFAULT_CHROMEDRIVER_VER')],
+                ['Please enter GeckoDriver version Default [' . getenv('DEFAULT_GECKODRIVER_VER') . ']:', getenv('DEFAULT_GECKODRIVER_VER'), getenv('DEFAULT_GECKODRIVER_VER')],
             ]))
             ;
 
         $target = new Prompt($interactorMock);
         $target->execute();
 
-        $this->assertFileExists(self::$outputDir . '/selenium-server-standalone-3.8.1.jar');
+        $this->assertFileExists(self::$outputDir . '/selenium-server-standalone-' . getenv('DEFAULT_SELENIUM_VER') . '.jar');
         $this->assertFileExists(self::$outputDir . '/chromedriver');
         $this->assertFileExists(self::$outputDir . '/geckodriver');
 
@@ -221,17 +221,17 @@ class PromptTest extends \PHPUnit_Framework_TestCase
             ->expects($this->exactly(4))
             ->method('determiningVersionOfAsset')
             ->will($this->returnValueMap([
-                ['Please enter selenium-server-standalone version Default [' . getenv('DEFAULT_SELENIUM_VER') . ']:', getenv('DEFAULT_SELENIUM_VER'), '3.8.1'],
-                ['Please enter ChromeDriver version Default [' . getenv('DEFAULT_CHROMEDRIVER_VER') . ']:', getenv('DEFAULT_CHROMEDRIVER_VER'), '2.43'],
-                ['Please enter GeckoDriver version Default [' . getenv('DEFAULT_GECKODRIVER_VER') . ']:', getenv('DEFAULT_GECKODRIVER_VER'), '0.23.0'],
-                ['Please enter IEDriverServer version Default [' . getenv('DEFAULT_IEDRIVER_VER') . ']:', getenv('DEFAULT_IEDRIVER_VER'), '3.14.0'],
+                ['Please enter selenium-server-standalone version Default [' . getenv('DEFAULT_SELENIUM_VER') . ']:', getenv('DEFAULT_SELENIUM_VER'), getenv('DEFAULT_SELENIUM_VER')],
+                ['Please enter ChromeDriver version Default [' . getenv('DEFAULT_CHROMEDRIVER_VER') . ']:', getenv('DEFAULT_CHROMEDRIVER_VER'), getenv('DEFAULT_CHROMEDRIVER_VER')],
+                ['Please enter GeckoDriver version Default [' . getenv('DEFAULT_GECKODRIVER_VER') . ']:', getenv('DEFAULT_GECKODRIVER_VER'), getenv('DEFAULT_GECKODRIVER_VER')],
+                ['Please enter IEDriverServer version Default [' . getenv('DEFAULT_IEDRIVER_VER') . ']:', getenv('DEFAULT_IEDRIVER_VER'), getenv('DEFAULT_IEDRIVER_VER')],
             ]))
             ;
 
         $target = new Prompt($interactorMock);
         $target->execute();
 
-        $this->assertFileExists(self::$outputDir . '/selenium-server-standalone-3.8.1.jar');
+        $this->assertFileExists(self::$outputDir . '/selenium-server-standalone-' . getenv('DEFAULT_SELENIUM_VER') . '.jar');
         $this->assertFileExists(self::$outputDir . '/chromedriver.exe');
         $this->assertFileExists(self::$outputDir . '/geckodriver.exe');
         $this->assertFileExists(self::$outputDir . '/IEDriverServer.exe');
@@ -359,16 +359,16 @@ class PromptTest extends \PHPUnit_Framework_TestCase
             ->expects($this->exactly(3))
             ->method('determiningVersionOfAsset')
             ->will($this->returnValueMap([
-                ['Please enter selenium-server-standalone version Default [' . getenv('DEFAULT_SELENIUM_VER') . ']:', getenv('DEFAULT_SELENIUM_VER'), '3.8.1'],
-                ['Please enter ChromeDriver version Default [' . getenv('DEFAULT_CHROMEDRIVER_VER') . ']:', getenv('DEFAULT_CHROMEDRIVER_VER'), '2.43'],
-                ['Please enter GeckoDriver version Default [' . getenv('DEFAULT_GECKODRIVER_VER') . ']:', getenv('DEFAULT_GECKODRIVER_VER'), '0.23.0'],
+                ['Please enter selenium-server-standalone version Default [' . getenv('DEFAULT_SELENIUM_VER') . ']:', getenv('DEFAULT_SELENIUM_VER'), getenv('DEFAULT_SELENIUM_VER')],
+                ['Please enter ChromeDriver version Default [' . getenv('DEFAULT_CHROMEDRIVER_VER') . ']:', getenv('DEFAULT_CHROMEDRIVER_VER'), getenv('DEFAULT_CHROMEDRIVER_VER')],
+                ['Please enter GeckoDriver version Default [' . getenv('DEFAULT_GECKODRIVER_VER') . ']:', getenv('DEFAULT_GECKODRIVER_VER'), getenv('DEFAULT_GECKODRIVER_VER')],
             ]))
             ;
 
         $target = new Prompt($interactorMock);
         $target->execute();
 
-        $this->assertFileExists(self::$outputDir . '/selenium-server-standalone-3.8.1.jar');
+        $this->assertFileExists(self::$outputDir . '/selenium-server-standalone-' . getenv('DEFAULT_SELENIUM_VER') . '.jar');
         $this->assertFileExists(self::$outputDir . '/chromedriver');
         $this->assertFileExists(self::$outputDir . '/geckodriver');
 

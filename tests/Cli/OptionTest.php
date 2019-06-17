@@ -120,9 +120,9 @@ class OptionTest extends \PHPUnit_Framework_TestCase
             ->willReturn([
                 'p' => 'm', // Platform is Mac.
                 'd' => self::$outputDir,
-                's' => '3.8.1',
-                'c' => '2.43',
-                'g' => '0.23.0',
+                's' => getenv('DEFAULT_SELENIUM_VER'),
+                'c' => getenv('DEFAULT_CHROMEDRIVER_VER'),
+                'g' => getenv('DEFAULT_GECKODRIVER_VER'),
             ])
             ;
 
@@ -130,7 +130,7 @@ class OptionTest extends \PHPUnit_Framework_TestCase
         $target->setOption($optionMock);
         $target->execute();
 
-        $this->assertFileExists(self::$outputDir . '/selenium-server-standalone-3.8.1.jar');
+        $this->assertFileExists(self::$outputDir . '/selenium-server-standalone-' . getenv('DEFAULT_SELENIUM_VER') . '.jar');
         $this->assertFileExists(self::$outputDir . '/chromedriver');
         $this->assertFileExists(self::$outputDir . '/geckodriver');
 
@@ -223,10 +223,10 @@ class OptionTest extends \PHPUnit_Framework_TestCase
             ->willReturn([
                 'p' => 'w', // Platform is Windows.
                 'd' => self::$outputDir,
-                's' => '3.8.1',
-                'c' => '2.43',
-                'g' => '0.23.0',
-                'i' => '3.14.0',
+                's' => getenv('DEFAULT_SELENIUM_VER'),
+                'c' => getenv('DEFAULT_CHROMEDRIVER_VER'),
+                'g' => getenv('DEFAULT_GECKODRIVER_VER'),
+                'i' => getenv('DEFAULT_IEDRIVER_VER'),
             ])
             ;
 
@@ -234,7 +234,7 @@ class OptionTest extends \PHPUnit_Framework_TestCase
         $target->setOption($optionMock);
         $target->execute();
 
-        $this->assertFileExists(self::$outputDir . '/selenium-server-standalone-3.8.1.jar');
+        $this->assertFileExists(self::$outputDir . '/selenium-server-standalone-' . getenv('DEFAULT_SELENIUM_VER') . '.jar');
         $this->assertFileExists(self::$outputDir . '/chromedriver.exe');
         $this->assertFileExists(self::$outputDir . '/geckodriver.exe');
         $this->assertFileExists(self::$outputDir . '/IEDriverServer.exe');
@@ -327,9 +327,9 @@ class OptionTest extends \PHPUnit_Framework_TestCase
             ->willReturn([
                 'p' => 'l', // Platform is Linux.
                 'd' => self::$outputDir,
-                's' => '3.8.1',
-                'c' => '2.43',
-                'g' => '0.23.0',
+                's' => getenv('DEFAULT_SELENIUM_VER'),
+                'c' => getenv('DEFAULT_CHROMEDRIVER_VER'),
+                'g' => getenv('DEFAULT_GECKODRIVER_VER'),
             ])
             ;
 
@@ -337,7 +337,7 @@ class OptionTest extends \PHPUnit_Framework_TestCase
         $target->setOption($optionMock);
         $target->execute();
 
-        $this->assertFileExists(self::$outputDir . '/selenium-server-standalone-3.8.1.jar');
+        $this->assertFileExists(self::$outputDir . '/selenium-server-standalone-' . getenv('DEFAULT_SELENIUM_VER') . '.jar');
         $this->assertFileExists(self::$outputDir . '/chromedriver');
         $this->assertFileExists(self::$outputDir . '/geckodriver');
 
