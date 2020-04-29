@@ -60,9 +60,9 @@ DEFAULT_OUTPUT_DIR=
 // Why 3.8.1? Because there are cases where it will not work unless pass-through mode can be set to false(-enablePassThrough false).
 DEFAULT_SELENIUM_VER='3.8.1'
 // The default version of ChromeDriver.
-DEFAULT_CHROMEDRIVER_VER='75.0.3770.90'
+DEFAULT_CHROMEDRIVER_VER='81.0.4044.69'
 // The default version of geckodriver.
-DEFAULT_GECKODRIVER_VER='0.24.0'
+DEFAULT_GECKODRIVER_VER='0.26.0'
 // The default version of IEDriverServer.
 DEFAULT_IEDRIVER_VER='3.141.59'
 ```
@@ -95,12 +95,12 @@ Do you need Selenium? [N]o, [y]es: y
 Please enter selenium-server-standalone version Default [3.8.1]: 3.8.1
 # Default "No".
 Do you need ChromeDriver? [N]o, [y]es: y
-# Default "75.0.3770.90".
-Please enter ChromeDriver version Default [75.0.3770.90]:
+# Default "81.0.4044.69".
+Please enter ChromeDriver version Default [81.0.4044.69]:
 # Default "No".
 Do you need GeckoDriver? [N]o, [y]es: y
-# Default "0.24.0".
-Please enter GeckoDriver version Default [0.24.0]:
+# Default "0.26.0".
+Please enter GeckoDriver version Default [0.26.0]:
 # Default "No".
 Do you need IEDriver? [N]o, [y]es: y
 # Default "3.141.59".
@@ -120,8 +120,8 @@ Supports the following options.
 |-p|Select platform [m]ac or [w]indows or [l]inux.<br>Required except that "-h, --help" is specified.|
 |-d|Specify the directory path to output.<br>If not specified, it is output to the path specified by .env.dafault\|.env(DEFAULT_OUTPUT_DIR).<br>If there is still no value, it is output to "selenium-downloader/xxx".|
 |-s|The version of selenium-standalone-server.<br>(e.g 3.8.1, 3.7(3.7.0)<br>(Recommend version 3.8.1)|
-|-c|The version of ChromeDriver.<br>(e.g 75.0.3770.90, 2.43|
-|-g|The version of GeckoDriver.<br>(e.g 0.24(0.24.0), 0.20.1|
+|-c|The version of ChromeDriver.<br>(e.g 81.0.4044.69, 2.43|
+|-g|The version of GeckoDriver.<br>(e.g 0.26(0.26.0), 0.20.1|
 |-i|The version of IEDriverServer.<br>(e.g 3.141.59, 3.14(3.14.0)|
 |-b|The number of OS bits (32 or 64).<br>Default is "32" (Because key input is earlier than 64bit version)<br>Valid only when IEDriverServer is specified.|
 
@@ -143,9 +143,9 @@ Usage:
     Enter the version of selenium-standalone-server. (e.g 3.8.1, 3.7(3.7.0)
     (Recommend version 3.8.1)
   -c ChromeDriver_ver
-    Enter the version of ChromeDriver. (e.g 75.0.3770.90, 2.43
+    Enter the version of ChromeDriver. (e.g 81.0.4044.69, 2.43
   -g geckodriver_ver
-    Enter the version of GeckoDriver. (e.g 0.24(0.24.0), 0.20.1
+    Enter the version of GeckoDriver. (e.g 0.26(0.26.0), 0.20.1
   -i IEDriverServer_ver
     Enter the version of IEDriverServer. (e.g 3.141.59, 3.14(3.14.0)
   -b bit_of_os
@@ -154,15 +154,15 @@ Usage:
     Valid only when IEDriverServer is specified.
 
 e.g) 1 Basic.
-$ php selenium_downloader.php -p m -s 3.8.1 -c 75.0.3770.90 -g 0.24
+$ php selenium_downloader.php -p m -s 3.8.1 -c 81.0.4044.69 -g 0.26
 e.g) 2 When specifying the output directory.
 $ php selenium_downloader.php -p m -d /your/path/to -s 3.8.1
 e.g) 3 When downloading the 64 bit version of the IEDriverServer.
 $ php selenium_downloader.php -p w -i 3.141.59 -b 64
 e.g) 4 When downloading only geckodriver.
-$ php selenium_downloader.php -p m -g 0.24
+$ php selenium_downloader.php -p m -g 0.26
 or
-$ php selenium_downloader.php -p m -s "" -c "" -g 0.24
+$ php selenium_downloader.php -p m -s "" -c "" -g 0.26
 ```
 
 ## Instant download
@@ -219,8 +219,8 @@ class InstantSelenium implements Optionable
      *     'p' => 'w',            // Select platform [m]ac or [w]indows or [l]inux.
      *     'd' => '.',            // Enter the output directory path.
      *     's' => '3.8.1',        // Enter the version of selenium-standalone-server. (e.g 3.8.1, 3.7(3.7.0)
-     *     'c' => '75.0.3770.90', // Enter the version of ChromeDriver. (e.g 75.0.3770.90, 2.43
-     *     'g' => '0.24.0',       // Enter the version of GeckoDriver. (e.g 0.24(0.24.0), 0.20.1
+     *     'c' => '81.0.4044.69', // Enter the version of ChromeDriver. (e.g 81.0.4044.69, 2.43
+     *     'g' => '0.26.0',       // Enter the version of GeckoDriver. (e.g 0.26(0.26.0), 0.20.1
      *     'i' => '3.141.59',     // Enter the version of IEDriverServer. (e.g 3.141.59, 3.14(3.14.0)
      *     'b' => '32',           // Enter the number of OS bits (32 or 64).
      * ];
@@ -233,8 +233,8 @@ class InstantSelenium implements Optionable
         return [
             'p' => 'm', // Select mac.
             's' => '3.8.1',
-            'c' => '75.0.3770.90',
-            'g' => '0.24.0',
+            'c' => '81.0.4044.69',
+            'g' => '0.26.0',
         ];
     }
 }
