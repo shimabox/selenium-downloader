@@ -9,7 +9,7 @@ use SMB\SeleniumDownloader\Downloader;
  * 
  * @group Downloader
  */
-class DownloaderTest extends \PHPUnit_Framework_TestCase
+class DownloaderTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

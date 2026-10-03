@@ -7,3 +7,4 @@ selenium-server-standalone*
 chromedriver
 geckodriver
 tests/report/
+.phpunit.result.cache

@@ -10,7 +10,7 @@ use SMB\SeleniumDownloader\Cli\Prompt;
  * @group Cli
  * @group Prompt
  */
-class PromptTest extends \PHPUnit_Framework_TestCase
+class PromptTest extends \PHPUnit\Framework\TestCase
 {
     use \SMB\SeleniumDownloader\Tests\Helper;
 
@@ -23,7 +23,7 @@ class PromptTest extends \PHPUnit_Framework_TestCase
      * Sets up the fixture, for example, open a network connection.
      * This method is called before a test is executed.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         self::deleteOutputDir();
         mkdir(self::$outputDir);
@@ -33,7 +33,7 @@ class PromptTest extends \PHPUnit_Framework_TestCase
      * Tears down the fixture, for example, close a network connection.
      * This method is called after a test is executed.
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         self::deleteOutputDir();
     }
@@ -41,7 +41,7 @@ class PromptTest extends \PHPUnit_Framework_TestCase
     /**
      * This method is called after the last test of this test class is run.
      */
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         self::deleteOutputDir();
     }
