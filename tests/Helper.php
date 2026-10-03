@@ -11,7 +11,7 @@ trait Helper
      * 
      * @param array $setMethods
      * 
-     * @return \PHPUnit_Framework_MockObject_MockObject
+     * @return \PHPUnit\Framework\MockObject\MockObject
      */
     private function getInteractorMock(array $setMethods=[
         'out',
@@ -31,7 +31,7 @@ trait Helper
      * 
      * @param array $setMethods
      * 
-     * @return \PHPUnit_Framework_MockObject_MockObject
+     * @return \PHPUnit\Framework\MockObject\MockObject
      */
     private function getOptionMock(array $setMethods=[
         'isSpecified',
